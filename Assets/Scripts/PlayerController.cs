@@ -6,17 +6,19 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
 
-    public float Speed = 2;
+    public float Speed = 200;
+    Rigidbody2D body;
 
-	void Update () {
-        float translation = Input.GetAxis("Vertical") * Speed;
-        float rotation = Input.GetAxis("Horizontal") * Speed;
+    void Start()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
 
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
-        Vector3 move = new Vector3(rotation, translation, 0);
-        //move.Normalize();
+    void Update () {
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
 
-        transform.Translate(move);
+
+        body.velocity = new Vector2(horizontal, vertical).normalized * Speed;
     }
 }
