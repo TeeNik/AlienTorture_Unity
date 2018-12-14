@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
 
-    public float Speed = 200;
+    public float Speed = 50f;
     Rigidbody2D body;
 
     void Start()
@@ -17,8 +17,7 @@ public class PlayerController : MonoBehaviour
     void Update () {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
-
-
         body.velocity = new Vector2(horizontal, vertical).normalized * Speed;
+        print(body.velocity);
     }
 }
