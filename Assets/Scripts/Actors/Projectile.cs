@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "")
+        if (col.tag == "Enemy")
         {
             Rigidbody.velocity = Vector2.zero;
             GameLayer.Instance.BulletPool.ReturnToPool(this);
