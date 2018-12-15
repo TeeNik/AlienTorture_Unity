@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private float _speed = 5f;
     private float _shootRate = .5f;
     private float _lastShootTime;
-    public GameObject ShotPrefab;
     Rigidbody2D body;
 
     void Start()
@@ -36,8 +35,9 @@ public class PlayerController : MonoBehaviour
             Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
             Vector2 direction = target - myPos;
             direction.Normalize();
-            GameObject projectile = (GameObject)Instantiate(ShotPrefab, myPos, Quaternion.identity);
-            projectile.GetComponent<Rigidbody2D>().velocity = direction * _speed;
+
+            var bullet = GameLayer.Instance.BulletPool.GetBullet();
+            bullet.Run(transform.position, direction);
         }
 
     }

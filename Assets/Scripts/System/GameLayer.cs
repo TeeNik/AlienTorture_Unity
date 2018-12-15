@@ -2,12 +2,15 @@
 
 public class GameLayer : MonoBehaviour
 {
-    [HideInInspector] public GameLayer Instance;
+    public static GameLayer Instance;
+
+    public BulletPool BulletPool;
 
     void Start()
     {
         Instance = this;
 
+        BulletPool.Init();
     }
 
 }
