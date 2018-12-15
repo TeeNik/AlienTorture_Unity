@@ -23,14 +23,13 @@ public class BulletPool : MonoBehaviour
 
     public Projectile GetBullet()
     {
-        var count = _free.Count;
-        if (count == 0)
+        if (_free.Count == 0)
         {
             AddObjectsToPool(10);
         }
 
-        var obj = _free[count - 1];
-        _free.RemoveAt(count - 1);
+        var obj = _free[_free.Count - 1];
+        _free.RemoveAt(_free.Count - 1);
         _used.Add(obj);
         obj.gameObject.SetActive(true);
         return obj;
