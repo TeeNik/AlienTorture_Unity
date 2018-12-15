@@ -18,13 +18,8 @@ public class Projectile : MonoBehaviour
     {
         if (col.tag == "")
         {
+            Rigidbody.velocity = Vector2.zero;
             GameLayer.Instance.BulletPool.ReturnToPool(this);
         }
     }
-
-    void Stop()
-    {
-
-    }
-
 }
