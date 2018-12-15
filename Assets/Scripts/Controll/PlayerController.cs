@@ -6,21 +6,33 @@ public class PlayerController : MonoBehaviour
     private float _speed = 5f;
     private float _shootRate = .5f;
     private float _lastShootTime;
-    Rigidbody2D body;
+    private Rigidbody2D _rb;
+    private Animator _animator;
+    private bool _looksRight = true;
 
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
-    void Update () {
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontal, vertical).normalized * _speed * 2;
+    void Update()
+    {
+        Move();
         if (Input.GetButton("Fire1"))
         {
             Shoot();
         }
+        if (_rb.velocity.x > 0 && !_looksRight || _rb.velocity.x < 0 && _looksRight)
+            Flip();
+    }
+
+    void Move()
+    {
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed * 2;
+        _animator.SetFloat("Speed", _rb.velocity.magnitude);
     }
 
     void Shoot()
@@ -36,6 +48,11 @@ public class PlayerController : MonoBehaviour
             var bullet = GameLayer.Instance.BulletPool.GetBullet();
             bullet.Run(transform.position, direction);
         }
+    }
 
+    void Flip()
+    {
+        transform.Rotate(0, 180, 0);
+        _looksRight = !_looksRight;
     }
 }
