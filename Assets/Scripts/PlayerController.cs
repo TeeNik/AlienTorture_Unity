@@ -18,6 +18,5 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontal, vertical).normalized * Speed;
-        print(body.velocity);
     }
 }
