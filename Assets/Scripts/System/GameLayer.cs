@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameLayer : MonoBehaviour
 {
@@ -17,6 +18,6 @@ public class GameLayer : MonoBehaviour
         SceneController = new SceneController();
 
         CharacterConstructor.CreateCharacter("1", transform);
-    }
 
+    }
 }
