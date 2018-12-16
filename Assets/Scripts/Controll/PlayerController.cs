@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
-        if (_rb.velocity.x > 0 && !_looksRight || _rb.velocity.x < 0 && _looksRight)
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        if (mousePosition.x > 0 && !_looksRight || mousePosition.x < 0 && _looksRight)
             Flip();
     }
 
