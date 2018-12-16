@@ -7,12 +7,14 @@ public class GameLayer : MonoBehaviour
     public BulletPool BulletPool;
     public ResourceManager ResourceManager;
     public CharacterConstructor CharacterConstructor;
+    public SceneController SceneController;
 
     void Start()
     {
         Instance = this;
 
         BulletPool.Init();
+        SceneController = new SceneController();
 
         CharacterConstructor.CreateCharacter("1", transform);
     }
