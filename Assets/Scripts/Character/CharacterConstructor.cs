@@ -7,6 +7,7 @@ public class CharacterConstructor : MonoBehaviour
     public void CreateCharacter(string type, Transform parent)
     {
         var character = Instantiate(_characterBase, parent);
-        character.Init(type);
+        CharacterModel model = new CharacterModel("1");
+        character.Init(model);
     }
 }

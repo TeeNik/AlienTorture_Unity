@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterModel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public CharacterModel(string type)
     {
-        
+        Type = type;
+        Health = new UnityBehavior<int>(10);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string Type { get; }
+
+    public UnityBehavior<int> Health { get; }
+
 }
