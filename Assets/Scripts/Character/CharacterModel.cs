@@ -3,13 +3,13 @@
 public class CharacterModel : MonoBehaviour
 {
 
-    public CharacterModel(string type)
+    public CharacterModel(CharacterData data)
     {
-        Type = type;
+        Data = data;
         Health = new UnityBehavior<int>(10);
     }
 
-    public string Type { get; }
+    public CharacterData Data { get; }
 
     public UnityBehavior<int> Health { get; }
 
