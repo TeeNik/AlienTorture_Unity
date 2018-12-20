@@ -1,5 +1,4 @@
-﻿{
-    "Characters": [
+﻿[
         {
             "Type": "1",
             "Sprite": "p1_7",
@@ -63,5 +62,4 @@
             "Ability": "none",
             "Cooldown": "0"
         }
-    ]
-}
+]

@@ -8,8 +8,9 @@ public class CharacterView : MonoBehaviour
 
     public void Init(CharacterModel model)
     {
-        _sr.sprite = GameLayer.Instance.ResourceManager.GetCharacterSprite($"p{model.Type}_7");
-        _animator.runtimeAnimatorController = GameLayer.Instance.ResourceManager.GetCharacterAnimator("Player" + model.Type);
+        var type = model.Data.Type;
+        _sr.sprite = GameLayer.Instance.ResourceManager.GetCharacterSprite($"p{type}_7");
+        _animator.runtimeAnimatorController = GameLayer.Instance.ResourceManager.GetCharacterAnimator("Player" + type);
     }
 
 }

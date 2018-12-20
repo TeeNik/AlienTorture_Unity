@@ -7,7 +7,8 @@ public class CharacterConstructor : MonoBehaviour
     public void CreateCharacter(string type, Transform parent)
     {
         var character = Instantiate(_characterBase, parent);
-        CharacterModel model = new CharacterModel("1");
+        CharacterData data = GameLayer.Instance.BalanceData.CharactersData.Find(ch => ch.Type == type);
+        CharacterModel model = new CharacterModel(data);
         character.Init(model);
     }
 }
