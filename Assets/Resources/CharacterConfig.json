@@ -1,0 +1,65 @@
+﻿[
+        {
+            "Type": "1",
+            "Sprite": "p1_7",
+            "Animator": "Player1",
+            "Ability": "rage",
+            "Cooldown": "30"
+        },
+        {
+            "Type": "2",
+            "Sprite": "p2_7",
+            "Animator": "Player2",
+            "Ability": "blastRing",
+            "Cooldown": "30"
+        },
+        {
+            "Type": "3",
+            "Sprite": "p3_7",
+            "Animator": "Player3",
+            "Ability": "shield",
+            "Cooldown": "30"
+        },
+        {
+            "Type": "4",
+            "Sprite": "p4_7",
+            "Animator": "Player4",
+            "Ability": "healing",
+            "Cooldown": "30"
+        },
+        {
+            "Type": "5",
+            "Sprite": "p5_7",
+            "Animator": "Player5",
+            "Ability": "teleport",
+            "Cooldown": "30"
+        },
+        {
+            "Type": "6",
+            "Sprite": "p6_7",
+            "Animator": "Player6",
+            "Ability": "energyBlast",
+            "Cooldown": "30"
+        },
+        {
+            "Type": "7",
+            "Sprite": "p7_7",
+            "Animator": "Player7",
+            "Ability": "none",
+            "Cooldown": "0"
+        },
+        {
+            "Type": "8",
+            "Sprite": "p8_7",
+            "Animator": "Player8",
+            "Ability": "none",
+            "Cooldown": "0"
+        },
+        {
+            "Type": "9",
+            "Sprite": "p9_7",
+            "Animator": "Player9",
+            "Ability": "none",
+            "Cooldown": "0"
+        }
+]

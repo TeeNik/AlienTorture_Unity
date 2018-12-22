@@ -9,15 +9,22 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private bool _looksRight = true;
-
+    private GameObject _activeWeapon;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _activeWeapon = GetComponent<Transform>().GetChild(0).gameObject;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))   // это костыльная смена оружия чисто чтоб проверить откуда летят пули
+        {
+            _activeWeapon.SetActive(false); 
+            _activeWeapon = GetComponent<Transform>().GetChild(1).gameObject;
+            _activeWeapon.SetActive(true);
+        }
         Move();
         if (Input.GetButton("Fire1"))
         {
@@ -47,7 +54,7 @@ public class PlayerController : MonoBehaviour
             direction.Normalize();
 
             var bullet = GameLayer.Instance.BulletPool.GetBullet();
-            bullet.Run(transform.position, direction);
+            bullet.Run(_activeWeapon.transform.position, direction);
         }
     }
 
