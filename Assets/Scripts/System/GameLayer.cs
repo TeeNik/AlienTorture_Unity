@@ -12,7 +12,7 @@ public class GameLayer : MonoBehaviour
     public CharacterConstructor CharacterConstructor;
     public SceneController SceneController;
     public BalanceData BalanceData;
-
+    public GameObject Player;
     void Start()
     {
         Instance = this;
@@ -22,7 +22,8 @@ public class GameLayer : MonoBehaviour
         BalanceData = new BalanceData();
 
         BalanceData.CharactersData = ParseConfig<CharacterData>("");
-        CharacterConstructor.CreateCharacter("1", transform);
+        Player =CharacterConstructor.CreateCharacter("1", transform).gameObject;
+
     }
 
 
