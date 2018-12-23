@@ -18,11 +18,14 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.mousePosition.x >= Screen.width || Input.mousePosition.x <= 0 || Input.mousePosition.y<=0 || Input.mousePosition.y>=Screen.height)
-            _target = (Camera.main.ScreenToWorldPoint(Input.mousePosition) + _player.transform.position) / 4;
+        if (Input.mousePosition.x >= Screen.width || Input.mousePosition.x <= 0 || Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height)
+        {
+            Vector3 mouseDir = Input.mousePosition - new Vector3(Screen.width, Screen.height) / 2;
+            _target =_player.transform.position+mouseDir.normalized*4;
+        }
         else
             _target = _player.transform.position;
         if ((transform.position - _target).magnitude > 0.5)
-            _rb.velocity = (_target - transform.position).normalized*100;
+            _rb.velocity = (_target - transform.position).normalized*80;
     }
 }

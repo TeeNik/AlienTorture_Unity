@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private bool _looksRight = true;
     private GameObject _activeWeapon;
+    public float DamageModifier=1;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -52,9 +53,8 @@ public class PlayerController : MonoBehaviour
             Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
             Vector2 direction = target - myPos;
             direction.Normalize();
-
             var bullet = GameLayer.Instance.BulletPool.GetBullet();
-            bullet.Run(_activeWeapon.transform.position, direction);
+            bullet.Run(_activeWeapon.transform.position, direction,DamageModifier);
         }
     }
 
@@ -63,4 +63,5 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, 180, 0);
         _looksRight = !_looksRight;
     }
+
 }
