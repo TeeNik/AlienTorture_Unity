@@ -1,31 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     private Vector3 _target;
     private Rigidbody2D _rb;
     private GameObject _player;
-    public GameObject Main;
-    // Start is called before the first frame update
+
+    private CompositeDisposable _subscriptions;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _player = Main.GetComponent<GameLayer>().Player.CurrentValue.Object;
+
+        _subscriptions = new CompositeDisposable();
+        _subscriptions.Add(GameLayer.Instance.Player.Subscribe((OnPlayerChanged)));
     }
 
-    // Update is called once per frame
+    private void OnPlayerChanged(CharacterModel characterModel)
+    {
+        _player = characterModel.Object;
+    }
+
     void Update()
     {
-        if (Input.mousePosition.x >= Screen.width || Input.mousePosition.x <= 0 || Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height)
+        if (_player != null)
         {
-            Vector3 mouseDir = Input.mousePosition - new Vector3(Screen.width, Screen.height) / 2;
-            _target =_player.transform.position+mouseDir.normalized*4;
+            var mousePosition = Input.mousePosition;
+            if (mousePosition.x >= Screen.width || mousePosition.x <= 0 || mousePosition.y <= 0 || mousePosition.y >= Screen.height)
+            {
+                Vector3 mouseDir = mousePosition - new Vector3(Screen.width, Screen.height) / 2;
+                _target = _player.transform.position + mouseDir.normalized * 4;
+            }
+            else
+                _target = _player.transform.position;
+            if ((transform.position - _target).magnitude > 0.5)
+                _rb.velocity = (_target - transform.position).normalized * 80;
         }
-        else
-            _target = _player.transform.position;
-        if ((transform.position - _target).magnitude > 0.5)
-            _rb.velocity = (_target - transform.position).normalized*80;
+    }
+
+    void OnDestroy()
+    {
+        Utils.DisposeAndSetNull(ref _subscriptions);
     }
 }

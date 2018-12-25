@@ -33,7 +33,9 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         if (mousePosition.x > 0 && !_looksRight || mousePosition.x < 0 && _looksRight)
+        {
             Flip();
+        }
     }
 
     void Move()
