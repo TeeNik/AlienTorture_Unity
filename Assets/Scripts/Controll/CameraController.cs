@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _player = Main.GetComponent<GameLayer>().Player;
+        _player = Main.GetComponent<GameLayer>().Player.CurrentValue.Object;
     }
 
     // Update is called once per frame
