@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.24266, y: 0.24266, z: 0.24266}
   m_Children: []
   m_Father: {fileID: 6818191448211948548}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &698495829
 SpriteRenderer:
@@ -122,7 +122,7 @@ Transform:
   m_LocalScale: {x: 0.24266142, y: 0.24266142, z: 0.24266142}
   m_Children: []
   m_Father: {fileID: 6818191448211948548}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2044930389
 SpriteRenderer:
@@ -293,7 +293,7 @@ Transform:
   - {fileID: 7637508564655597365}
   - {fileID: 594038855164993442}
   m_Father: {fileID: 6818191448211948548}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6818191448211948555
 GameObject:
@@ -328,9 +328,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3118625078146111381}
   - {fileID: 2044930387}
   - {fileID: 698495827}
+  - {fileID: 3118625078146111381}
   - {fileID: 1619326030427707393}
   - {fileID: 8075150881928179096}
   m_Father: {fileID: 0}
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sr: {fileID: 6818191448211948549}
   _animator: {fileID: 6818191448211948550}
+  _healthBar: {fileID: 594038855164993442}
 --- !u!95 &6818191448211948550
 Animator:
   serializedVersion: 3

@@ -23,7 +23,7 @@ public class CharacterView : MonoBehaviour
 
     private void OnHealthChanged(int health)
     {
-        var scale = transform.localScale;
+        var scale = _healthBar.localScale;
         scale.x = (float) health / (float) _model.MaxHealth;
         _healthBar.localScale = scale;
     }
