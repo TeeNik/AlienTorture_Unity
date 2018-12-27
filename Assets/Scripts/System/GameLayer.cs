@@ -12,7 +12,10 @@ public class GameLayer : MonoBehaviour
     public CharacterConstructor CharacterConstructor;
     public SceneController SceneController;
     public BalanceData BalanceData;
-    public GameObject Player;
+
+
+    //TODO Replace to Model
+    public UnityBehaviorEquals<CharacterModel> Player;
     void Start()
     {
         Instance = this;
@@ -22,10 +25,16 @@ public class GameLayer : MonoBehaviour
         BalanceData = new BalanceData();
 
         BalanceData.CharactersData = ParseConfig<CharacterData>("");
-        Player =CharacterConstructor.CreateCharacter("1", transform).gameObject;
-
+        Player = new UnityBehaviorEquals<CharacterModel>(null);
+        InitPlayer();
     }
 
+    //TODO Remove later
+    public void InitPlayer()
+    {
+        var player = CharacterConstructor.CreateCharacter("1", transform);
+        Player.OnNext(player);
+    }
 
     //TODO Remove later
     public List<T> ParseConfig<T>(string name)

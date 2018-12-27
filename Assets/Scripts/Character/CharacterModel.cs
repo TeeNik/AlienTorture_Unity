@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class CharacterModel : MonoBehaviour
+public class CharacterModel
 {
 
-    public CharacterModel(CharacterData data)
+    public CharacterModel(CharacterData data, GameObject obj)
     {
         Data = data;
-        Health = new UnityBehavior<int>(10);
+        Health = new UnityBehavior<int>(MaxHealth);
+        Object = obj;
     }
 
     public CharacterData Data { get; }
-
     public UnityBehavior<int> Health { get; }
+    public GameObject Object { get; }
 
+    //TODO Move to configs
+    public int MaxHealth => 10;
 }
