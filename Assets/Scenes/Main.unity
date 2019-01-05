@@ -165,6 +165,9 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 66d9c6238f16e6645afba318a776a42f, type: 2}
   - {fileID: 9100000, guid: 13f357d03533b634e9a9a286431e7ea3, type: 2}
   - {fileID: 9100000, guid: 79c3205c661601140b3049ab6dc47a0c, type: 2}
+  AbilityPrefabs:
+  - {fileID: 6465173599633207538, guid: 3317692f93c1ba743b752a7d2a43b02f, type: 3}
+  - {fileID: 2540075732056140136, guid: 8921a70c709827f4ab7dbf1c68c3dbc3, type: 3}
 --- !u!1 &175395534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1550,7 @@ Tilemap:
   - first: {x: -4, y: 0, z: 0}
     second:
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1685,10 +1688,10 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c1e867e18d65a3d4ba0df6304d902a58, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300042, guid: 0a9c236ea5dfe1646b9d74baeb341074, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300042, guid: 0a9c236ea5dfe1646b9d74baeb341074, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300044, guid: 0a9c236ea5dfe1646b9d74baeb341074, type: 3}
   - m_RefCount: 1

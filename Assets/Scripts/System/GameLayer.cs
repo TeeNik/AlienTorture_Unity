@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -11,8 +12,7 @@ public class GameLayer : MonoBehaviour
     public ResourceManager ResourceManager;
     public CharacterConstructor CharacterConstructor;
     public SceneController SceneController;
-    public BalanceData BalanceData;
-
+    public BalanceData BalanceData;  
 
     //TODO Replace to Model
     public UnityBehaviorEquals<CharacterModel> Player;

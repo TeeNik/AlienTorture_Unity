@@ -5,39 +5,33 @@ using UnityEngine;
 public class Ablilties : MonoBehaviour
 {
     public GameObject Blast,Aura;
-    private float rageEndTime,shieldEndTime;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            Rage();
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            BlastRing();
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            Shield();
-        if (Time.time < rageEndTime)
-            GetComponent<PlayerController>().DamageModifier = 2;
-        else
-            GetComponent<PlayerController>().DamageModifier = 1;
-        Aura.GetComponent<Animator>().SetBool("raged", Time.time < rageEndTime);
-        Aura.GetComponent<Animator>().SetBool("shield", Time.time < shieldEndTime);
+
     }
-    void Rage()
+    public IEnumerator Shield(Animator animator)
     {
-        rageEndTime = Time.time + 5;
+        animator.SetBool("shield", true);
+        yield return new WaitForSeconds(5);
+        animator.GetComponent<Animator>().SetBool("shield", false);
+    }
+    IEnumerator Rage(Animator animator)
+    {
+        GetComponent<PlayerController>().DamageModifier = 2;
+        Aura.GetComponent<Animator>().SetBool("raged", true);
+        yield return new WaitForSeconds(5);
+        GetComponent<PlayerController>().DamageModifier = 1;
+        Aura.GetComponent<Animator>().SetBool("raged", false);
     }
     void BlastRing()
     {
         Blast.GetComponent<Animator>().SetTrigger("blow");
     }
-    void Shield()
-    {
-        shieldEndTime = Time.time + 5;
-    }
+
 }

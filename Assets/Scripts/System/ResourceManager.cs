@@ -5,7 +5,12 @@ public class ResourceManager : MonoBehaviour
 
     public Sprite[] CharacterSprites;
     public RuntimeAnimatorController[] CharacterAnimators;
+    public GameObject[] AbilityPrefabs;
 
+    public GameObject GetAbilityPrefab(string name)
+    {
+        return Get(name,AbilityPrefabs);
+    }
 
     public Sprite GetCharacterSprite(string name)
     {
