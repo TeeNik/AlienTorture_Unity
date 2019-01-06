@@ -14,7 +14,7 @@ public class CharacterView : MonoBehaviour
     {
         _model = model;
         var type = model.Data.Type;
-        _sr.sprite = GameLayer.Instance.ResourceManager.GetCharacterSprite($"p{type}_7");
+        _sr.sprite = GameLayer.Instance.ResourceManager.GetCharacterSprite($"p{type}_8");
         _animator.runtimeAnimatorController = GameLayer.Instance.ResourceManager.GetCharacterAnimator("Player" + type);
 
         _subscriptions = new CompositeDisposable();

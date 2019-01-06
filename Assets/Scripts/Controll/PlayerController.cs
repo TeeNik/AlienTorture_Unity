@@ -20,12 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))   // это костыльная смена оружия чисто чтоб проверить откуда летят пули
-        {
-            _activeWeapon.SetActive(false); 
-            _activeWeapon = GetComponent<Transform>().GetChild(1).gameObject;
-            _activeWeapon.SetActive(true);
-        }
+
         Move();
         if (Input.GetButton("Fire1"))
         {
@@ -35,6 +30,10 @@ public class PlayerController : MonoBehaviour
         if (mousePosition.x > 0 && !_looksRight || mousePosition.x < 0 && _looksRight)
         {
             Flip();
+        }
+        if (Input.GetButton("Jump"))
+        {
+            Ability();
         }
     }
 
@@ -59,7 +58,10 @@ public class PlayerController : MonoBehaviour
             bullet.Run(_activeWeapon.transform.position, direction,DamageModifier);
         }
     }
-
+    void Ability()
+    {
+        GameLayer.Instance.Player.CurrentValue.Ability.Use();
+    }
     void Flip()
     {
         transform.Rotate(0, 180, 0);
