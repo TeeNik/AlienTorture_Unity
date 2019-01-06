@@ -12,8 +12,8 @@ public class CharacterModel
 
     public CharacterData Data { get; }
     public UnityBehavior<int> Health { get; }
-    public GameObject Object { get; }
-    public IAbility Ability;   
+    public GameObject Object { get; } 
+    public Ability Ability;   
     //TODO Move to configs
     public int MaxHealth => 10;
 }
