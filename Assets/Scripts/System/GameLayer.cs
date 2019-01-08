@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using Yarx.Subjects;
 
 public class GameLayer : MonoBehaviour
 {
@@ -15,16 +16,20 @@ public class GameLayer : MonoBehaviour
     public BalanceData BalanceData;  
 
     //TODO Replace to Model
-    public UnityBehaviorEquals<CharacterModel> Player;
+    public UnityBehaviorEquals<CharacterModel> Player { get; private set; }
+    public CommandSubject Messages { get; private set; }
+
     void Start()
     {
         Instance = this;
 
+        Messages = new CommandSubject();
         BulletPool.Init();
         SceneController = new SceneController();
         BalanceData = new BalanceData();
+        CharacterConstructor.Init();
 
-        BalanceData.CharactersData = ParseConfig<CharacterData>("");
+        BalanceData.CharactersData = ParseConfig<CharacterData>();
         Player = new UnityBehaviorEquals<CharacterModel>(null);
         InitPlayer();
     }
@@ -37,7 +42,7 @@ public class GameLayer : MonoBehaviour
     }
 
     //TODO Remove later
-    public List<T> ParseConfig<T>(string name)
+    public List<T> ParseConfig<T>()
     {
         var asset = Resources.Load("CharacterConfig") as TextAsset;
         return JsonConvert.DeserializeObject<List<T>>(asset.text);
