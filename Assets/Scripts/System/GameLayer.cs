@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
-using Yarx.Subjects;
+
 
 public class GameLayer : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class GameLayer : MonoBehaviour
     //TODO Remove later
     public void InitPlayer()
     {
-        var player = CharacterConstructor.CreateCharacter("1", transform);
+        var player = CharacterConstructor.CreateCharacter("5", transform);
         Player.OnNext(player);
     }
 

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Ability();
         }

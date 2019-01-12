@@ -24,21 +24,21 @@
             "Type": "4",
             "Sprite": "p4_8",
             "Animator": "Player4",
-            "Ability": "healing",
+            "Ability": "Healing",
             "Cooldown": "30"
         },
         {
             "Type": "5",
             "Sprite": "p5_8",
             "Animator": "Player5",
-            "Ability": "teleport",
+            "Ability": "Teleport",
             "Cooldown": "30"
         },
         {
             "Type": "6",
             "Sprite": "p6_8",
             "Animator": "Player6",
-            "Ability": "energyBlast",
+            "Ability": "EnergyBlast",
             "Cooldown": "30"
         },
         {

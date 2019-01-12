@@ -5,9 +5,9 @@ public sealed class Rage : Ability
 {
     public override void Init(Transform tr)
     {
-        GameObject rageAura = Object.Instantiate(GameLayer.Instance.ResourceManager.GetAbilityPrefab(Name));
-        rageAura.transform.parent = tr;
-        _animator = rageAura.GetComponent<Animator>();
+        GameObject Aura = Object.Instantiate(GameLayer.Instance.ResourceManager.GetAbilityPrefab(Name));
+        Aura.transform.parent = tr;
+        _animator = Aura.GetComponent<Animator>();
     }
 
     IEnumerator RageRoutine(Animator animator)

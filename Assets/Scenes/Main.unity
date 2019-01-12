@@ -165,6 +165,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 66d9c6238f16e6645afba318a776a42f, type: 2}
   - {fileID: 9100000, guid: 13f357d03533b634e9a9a286431e7ea3, type: 2}
   - {fileID: 9100000, guid: 79c3205c661601140b3049ab6dc47a0c, type: 2}
+  - {fileID: 9100000, guid: ab445c0ca29473445998ea7e6430e70e, type: 2}
+  - {fileID: 9100000, guid: edf88ff7324a2cd48b1e00e063fba174, type: 2}
   AbilityPrefabs:
   - {fileID: 6465173599633207538, guid: 3317692f93c1ba743b752a7d2a43b02f, type: 3}
   - {fileID: 2540075732056140136, guid: 8921a70c709827f4ab7dbf1c68c3dbc3, type: 3}
@@ -380,7 +382,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e4b636565e1e9924aab81dfc6a4acfc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
