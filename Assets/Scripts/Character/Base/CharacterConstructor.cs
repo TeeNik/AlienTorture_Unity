@@ -31,4 +31,9 @@ public class CharacterConstructor : MonoBehaviour
         model.Ability.Init(model.Object.transform);
         return model;
     }
+
+    public Type GetAbility(string name)
+    {
+        return _abilities[name];
+    }
 }
