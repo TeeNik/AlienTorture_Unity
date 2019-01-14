@@ -8,11 +8,16 @@ public class CharacterModel
         Data = data;
         Health = new UnityBehavior<int>(MaxHealth);
         Object = obj;
+        MovementComp = obj.GetComponent<MovementComponent>();
+        MovementComp.Init();
     }
 
     public CharacterData Data { get; }
     public UnityBehavior<int> Health { get; }
     public GameObject Object { get; } 
+    public MovementComponent MovementComp { get; }
+
+
     public Ability Ability;   
     public void ChangeHealth (int Damage)
     {

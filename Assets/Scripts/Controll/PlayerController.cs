@@ -1,48 +1,47 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private CompositeDisposable _subscriptions;
+    private MovementComponent _movement;
 
-    private float _speed = 5f;
     private float _shootRate = .5f;
     private float _lastShootTime;
-    private Rigidbody2D _rb;
-    private Animator _animator;
-    private bool _looksRight = true;
     private GameObject _activeWeapon;
     public float DamageModifier=1;
+
+
+
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        _subscriptions = new CompositeDisposable();
+        _subscriptions.Add(GameLayer.Instance.Player.Subscribe(OnPlayerCreated));
         _activeWeapon = GetComponent<Transform>().GetChild(0).gameObject;
+
+    }
+
+    private void OnPlayerCreated(CharacterModel characterModel)
+    {
+        
     }
 
     void Update()
     {
-
-        Move();
         if (Input.GetButton("Fire1"))
         {
             Shoot();
         }
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        if (mousePosition.x > 0 && !_looksRight || mousePosition.x < 0 && _looksRight)
-        {
-            Flip();
-        }
+
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        _movement.Move(vertical, horizontal);
+        _movement.Flip();
+
         if (Input.GetButtonDown("Jump"))
         {
             Ability();
         }
-    }
-
-    void Move()
-    {
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed * 2;
-        _animator.SetFloat("Speed", _rb.velocity.magnitude);
     }
 
     void Shoot()
@@ -62,10 +61,4 @@ public class PlayerController : MonoBehaviour
     {
         GameLayer.Instance.Player.CurrentValue.Ability.Use();
     }
-    void Flip()
-    {
-        transform.Rotate(0, 180, 0);
-        _looksRight = !_looksRight;
-    }
-
 }
