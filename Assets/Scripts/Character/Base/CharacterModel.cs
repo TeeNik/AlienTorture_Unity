@@ -1,30 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class CharacterModel
+public class CharacterModel : IDisposable
 {
 
     public CharacterModel(CharacterData data, GameObject obj)
     {
         Data = data;
-        Health = new UnityBehavior<int>(MaxHealth);
         Object = obj;
+        _subscriptions = new CompositeDisposable();
         MovementComp = obj.GetComponent<MovementComponent>();
         MovementComp.Init();
+        HealthComp = obj.GetComponent<HealthComponent>();
+        HealthComp.Init(_subscriptions);
     }
+
+    private CompositeDisposable _subscriptions;
 
     public CharacterData Data { get; }
-    public UnityBehavior<int> Health { get; }
     public GameObject Object { get; } 
     public MovementComponent MovementComp { get; }
+    public HealthComponent HealthComp { get; }
 
-
-    public Ability Ability;   
-    public void ChangeHealth (int Damage)
+    public Ability Ability;
+    public void Dispose()
     {
-        int newHealth = Mathf.Min(Health.CurrentValue - Damage, MaxHealth);      
-        Health.OnNext(newHealth);
-        Debug.Log(Health.CurrentValue);
+        Utils.DisposeAndSetNull(ref _subscriptions);
     }
-    //TODO Move to configs
-    public int MaxHealth => 10;
 }

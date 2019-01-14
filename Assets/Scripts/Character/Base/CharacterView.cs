@@ -18,13 +18,13 @@ public class CharacterView : MonoBehaviour
         _animator.runtimeAnimatorController = GameLayer.Instance.ResourceManager.GetCharacterAnimator("Player" + type);
 
         _subscriptions = new CompositeDisposable();
-        _subscriptions.Add(model.Health.Subscribe(OnHealthChanged));
+        _subscriptions.Add(model.HealthComp.Health.Subscribe(OnHealthChanged));
     }
 
     private void OnHealthChanged(int health)
     {
         var scale = _healthBar.localScale;
-        scale.x = (float) health / (float) _model.MaxHealth;
+        scale.x = (float) health / (float) _model.HealthComp.MaxHealth;
         _healthBar.localScale = scale;
     }
 

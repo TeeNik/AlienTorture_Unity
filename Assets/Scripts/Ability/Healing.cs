@@ -15,6 +15,6 @@ public class Healing : Ability
     public override void Use()
     {
         _animator.SetTrigger("heal");
-        GameLayer.Instance.Player.CurrentValue.ChangeHealth(-1);
+        GameLayer.Instance.Messages.OnNext(new HealthChangeMsg{Value = -2});
     }
 }
