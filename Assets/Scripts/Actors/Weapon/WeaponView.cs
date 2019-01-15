@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class WeaponView : MonoBehaviour
 {
+    private WeaponModel _model;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void Init(WeaponModel model)
     {
-        
+        _model = model;
     }
 }

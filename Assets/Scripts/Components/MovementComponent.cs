@@ -6,7 +6,7 @@ public class MovementComponent : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private Animator _animator;
-    private float _speed = 5f;
+    private float _speed = 3f;
     private bool _looksRight = true;
 
     public void Init()
@@ -17,7 +17,7 @@ public class MovementComponent : MonoBehaviour
 
     public void Move(float vertical, float horizontal)
     {
-        _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed * 2;
+        _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed;
         _animator.SetFloat("Speed", _rb.velocity.magnitude);
     }
 

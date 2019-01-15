@@ -13,11 +13,11 @@ public sealed class Rage : Ability
     IEnumerator RageRoutine(Animator animator)
     {
         //TODO
-        var pc = GameLayer.Instance.Player.CurrentValue.Object.GetComponent<PlayerController>();
-        pc.DamageModifier = 2;
+        var wc = GameLayer.Instance.Player.CurrentValue.Object.GetComponent<WeaponComponent>();
+        wc.damage *= 2;
         animator.SetBool("raged", true);
         yield return new WaitForSeconds(5);
-        pc.DamageModifier = 1;
+        wc.damage /= 2;
         animator.GetComponent<Animator>().SetBool("raged", false);
     }
     public override void Use()

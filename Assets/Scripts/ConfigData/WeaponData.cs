@@ -1,4 +1,7 @@
-﻿public class WeaponData
+﻿using System;
+
+[Serializable]
+public class WeaponData
 {
     public float Rate;
     public float Damage;

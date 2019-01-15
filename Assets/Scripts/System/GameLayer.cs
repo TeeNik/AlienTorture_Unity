@@ -12,9 +12,9 @@ public class GameLayer : MonoBehaviour
     public BulletPool BulletPool;
     public ResourceManager ResourceManager;
     public CharacterConstructor CharacterConstructor;
+    public WeaponConstructor WeaponConstructor;
     public SceneController SceneController;
-    public BalanceData BalanceData;  
-
+    public BalanceData BalanceData;
     //TODO Replace to Model
     public UnityBehaviorEquals<CharacterModel> Player { get; private set; }
     public CommandSubject Messages { get; private set; }
@@ -29,7 +29,9 @@ public class GameLayer : MonoBehaviour
         BalanceData = new BalanceData();
         CharacterConstructor.Init();
 
-        BalanceData.CharactersData = ParseConfig<CharacterData>();
+        BalanceData.CharactersData = ParseConfig<CharacterData>("CharacterConfig");
+        BalanceData.WeaponsData = ParseConfig<WeaponData>("WeaponConfig");
+        
         Player = new UnityBehaviorEquals<CharacterModel>(null);
         InitPlayer();
     }
@@ -37,14 +39,14 @@ public class GameLayer : MonoBehaviour
     //TODO Remove later
     public void InitPlayer()
     {
-        var player = CharacterConstructor.CreateCharacter("5", transform);
+        var player = CharacterConstructor.CreateCharacter("1", transform);
         Player.OnNext(player);
     }
 
     //TODO Remove later
-    public List<T> ParseConfig<T>()
+    public List<T> ParseConfig<T>(string fileName)
     {
-        var asset = Resources.Load("CharacterConfig") as TextAsset;
+        var asset = Resources.Load(fileName) as TextAsset;
         return JsonConvert.DeserializeObject<List<T>>(asset.text);
     }
 }

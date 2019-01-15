@@ -13,6 +13,7 @@ public class CharacterModel : IDisposable
         MovementComp.Init();
         HealthComp = obj.GetComponent<HealthComponent>();
         HealthComp.Init(_subscriptions);
+        WeaponComp = obj.GetComponent<WeaponComponent>();
     }
 
     private CompositeDisposable _subscriptions;
@@ -21,7 +22,7 @@ public class CharacterModel : IDisposable
     public GameObject Object { get; } 
     public MovementComponent MovementComp { get; }
     public HealthComponent HealthComp { get; }
-
+    public WeaponComponent WeaponComp { get; }
     public Ability Ability;
     public void Dispose()
     {

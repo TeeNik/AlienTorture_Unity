@@ -2,14 +2,14 @@
 
 public class Projectile : MonoBehaviour
 {
-    private float Damage,_baseDamage=10;
+    private int _damage;
     public int Speed;
     [SerializeField] private Rigidbody2D Rigidbody;
 
 
-    public void Run(Vector2 startPos, Vector2 direction, float modifier)
+    public void Run(Vector2 startPos, Vector2 direction,int weaponDamage)
     {
-        Damage = modifier*_baseDamage;
+        _damage = weaponDamage;
         transform.position = startPos;
         Rigidbody.velocity = direction * Speed;
     }
