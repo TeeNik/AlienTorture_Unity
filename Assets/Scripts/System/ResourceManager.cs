@@ -6,6 +6,8 @@ public class ResourceManager : MonoBehaviour
     public Sprite[] CharacterSprites;
     public RuntimeAnimatorController[] CharacterAnimators;
     public GameObject[] AbilityPrefabs;
+    public CharacterView CharacterBase;
+    public WeaponView WeaponBase;
 
     public GameObject GetAbilityPrefab(string name)
     {

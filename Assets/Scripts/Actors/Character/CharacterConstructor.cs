@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class CharacterConstructor : MonoBehaviour
 {
-    [SerializeField] private CharacterView _characterBase;
+    private CharacterView _characterBase;
     private Dictionary<string, Type> _abilities;
 
     public void Init()
     {
+        _characterBase = GameLayer.Instance.ResourceManager.CharacterBase;
         _abilities = new Dictionary<string, Type>();
         var abilityType = typeof(Ability);
         var abilities = Assembly.GetAssembly(abilityType).GetTypes().Where(t => t.IsClass && !t.IsAbstract && abilityType.IsAssignableFrom(t));
