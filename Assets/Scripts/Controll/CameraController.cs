@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
 
     private void OnPlayerChanged(CharacterModel characterModel)
     {
-        _player = characterModel.Object;
+        _player = characterModel.gameObject;
     }
 
     void Update()

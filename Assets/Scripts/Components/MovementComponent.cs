@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementComponent : MonoBehaviour
+public class MovementComponent : BaseComponent
 {
     private Rigidbody2D _rb;
     private Animator _animator;
     private float _speed = 3f;
     private bool _looksRight = true;
 
-    public void Init()
+    public override void Init(CharacterModel owner)
     {
+        base.Init(owner);
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }

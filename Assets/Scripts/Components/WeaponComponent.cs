@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponComponent : MonoBehaviour
+public class WeaponComponent : BaseComponent
 {
     public WeaponModel Weapon;
     private float _lastShootTime;

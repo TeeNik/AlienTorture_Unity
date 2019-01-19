@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class HealthComponent : MonoBehaviour
+public class HealthComponent : BaseComponent
 {
     public int MaxHealth;
     public UnityBehavior<int> Health { get; private set; }
+    private CompositeDisposable _subscriptions;
 
-    public void Init(CompositeDisposable subscriptions)
+    public override void Init(CharacterModel model)
     {
+        base.Init(model);
         MaxHealth = 10;
         Health = new UnityBehavior<int>(MaxHealth);
         var messages = GameLayer.Instance.Messages;
-        subscriptions.Add(messages.Subscribe<HealthChangeMsg>(OnHealthChangeMsg));
+        _subscriptions = new CompositeDisposable();
+        _subscriptions.Add(messages.Subscribe<HealthChangeMsg>(OnHealthChangeMsg));
     }
 
     private void OnHealthChangeMsg(HealthChangeMsg msg)
@@ -24,5 +27,6 @@ public class HealthComponent : MonoBehaviour
         Health.OnNext(newHealth);
         Debug.Log(Health.CurrentValue);
     }
+
 
 }
