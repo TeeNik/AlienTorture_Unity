@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _subscriptions = new CompositeDisposable();
-        _subscriptions.Add(GameLayer.Instance.Player.Subscribe(OnPlayerCreated));
+        _subscriptions.Add(Game.Get().Player.Subscribe(OnPlayerCreated));
     }
 
     private void OnPlayerCreated(CharacterModel model)
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void Ability()
     {
-        GameLayer.Instance.Player.CurrentValue.Ability.Use();
+        Game.Get().Player.CurrentValue.Ability.Use();
     }
 
     void OnDestroy()

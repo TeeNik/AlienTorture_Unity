@@ -16,15 +16,12 @@ public class GameLayer : MonoBehaviour
     public SceneController SceneController;
     public BalanceData BalanceData;
 
-    //TODO Replace to Model
-    public UnityBehaviorEquals<CharacterModel> Player { get; private set; }
-    public CommandSubject Messages { get; private set; }
-
+    public UnityBehaviorEquals<EnvironmentModel> CurrentModel { get; private set; }
     void Start()
     {
         Instance = this;
 
-        Messages = new CommandSubject();
+        CurrentModel = new UnityBehaviorEquals<EnvironmentModel>(null);
         BulletPool.Init();
         SceneController = new SceneController();
         BalanceData = new BalanceData();
@@ -35,23 +32,20 @@ public class GameLayer : MonoBehaviour
 
         BalanceData.CharactersData = ParseConfig<CharacterData>("CharacterConfig");
         BalanceData.WeaponsData = ParseConfig<WeaponData>("WeaponConfig");
-        
-        Player = new UnityBehaviorEquals<CharacterModel>(null);
 
-        SceneController.LoadScene("Level", true, OnLoaded);
+        ChangeCurrentModel(new GameModel());
     }
 
     private void OnLoaded(string s)
     {
-        gameObject.AddComponent<PlayerController>();
-        InitPlayer();
+        
     }
 
-    //TODO Remove later
-    public void InitPlayer()
+    public void ChangeCurrentModel(EnvironmentModel newModel)
     {
-        var player = CharacterConstructor.CreateCharacter("1", transform);
-        Player.OnNext(player);
+        CurrentModel.CurrentValue?.OnExit();
+        CurrentModel.OnNext(newModel);
+        newModel.OnEnter();
     }
 
     //TODO Remove later

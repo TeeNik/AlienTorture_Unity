@@ -10,7 +10,7 @@ public sealed class Teleport : Ability
     public override void Use()
     {
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        GameLayer.Instance.Player.CurrentValue.transform.position = new Vector3(target.x,target.y,0);
+        Game.Get().Player.CurrentValue.transform.position = new Vector3(target.x,target.y,0);
     }
   //  public override string Name => "Blastring";
 }

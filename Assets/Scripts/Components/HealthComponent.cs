@@ -11,7 +11,7 @@ public class HealthComponent : BaseComponent
         base.Init(model);
         MaxHealth = 10;
         Health = new UnityBehavior<int>(MaxHealth);
-        var messages = GameLayer.Instance.Messages;
+        var messages = GameLayer.Instance.CurrentModel.CurrentValue.Messages;
         _subscriptions = new CompositeDisposable();
         _subscriptions.Add(messages.Subscribe<HealthChangeMsg>(OnHealthChangeMsg));
     }

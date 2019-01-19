@@ -13,7 +13,7 @@ public sealed class Rage : Ability
     IEnumerator RageRoutine(Animator animator)
     {
         //TODO
-        var wc = GameLayer.Instance.Player.CurrentValue.WeaponComp;
+        var wc = Game.Get().Player.CurrentValue.WeaponComp;
         wc.Weapon.Data.Damage *= 2;
         animator.SetBool("raged", true);
         yield return new WaitForSeconds(5);
