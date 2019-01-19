@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class WeaponComponent : BaseComponent
@@ -7,7 +8,6 @@ public class WeaponComponent : BaseComponent
     public WeaponModel Weapon;
     private float _lastShootTime;
     private Transform _weaponContainer;
-
 
     public void Init(CharacterModel owner, Transform weaponContainer)
     {
@@ -42,6 +42,14 @@ public class WeaponComponent : BaseComponent
             direction.Normalize();
             var bullet = GameLayer.Instance.BulletPool.GetBullet();
             bullet.Run(Weapon.transform.position, direction, Weapon.Data.Damage);
+        }
+    }
+
+    public void Update()
+    {
+        Input.GetKey(KeyCode.A)
+        {
+
         }
     }
 }
