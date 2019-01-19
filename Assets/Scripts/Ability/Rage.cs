@@ -14,10 +14,10 @@ public sealed class Rage : Ability
     {
         //TODO
         var wc = GameLayer.Instance.Player.CurrentValue.Object.GetComponent<WeaponComponent>();
-        wc.damage *= 2;
+        wc.Weapon.Data.Damage *= 2;
         animator.SetBool("raged", true);
         yield return new WaitForSeconds(5);
-        wc.damage /= 2;
+        wc.Weapon.Data.Damage /= 2;
         animator.GetComponent<Animator>().SetBool("raged", false);
     }
     public override void Use()

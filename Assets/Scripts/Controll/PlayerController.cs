@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _subscriptions = new CompositeDisposable();
-        _subscriptions.Add(GameLayer.Instance.Player.Subscribe(OnPlayerCreated));
+        //_subscriptions.Add(GameLayer.Instance.Player.Subscribe(OnPlayerCreated));
     }
 
     private void OnPlayerCreated(CharacterModel model)
