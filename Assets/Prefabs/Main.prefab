@@ -106,7 +106,9 @@ MonoBehaviour:
   - {fileID: 2540075732056140136, guid: 8921a70c709827f4ab7dbf1c68c3dbc3, type: 3}
   CharacterBase: {fileID: 4039487093783565181, guid: aed16ea4786169d40aa0eae8a21cd90e,
     type: 3}
-  WeaponBase: {fileID: 0}
+  WeaponPrefabs:
+  - {fileID: 4305980056157809461, guid: ebb5f268a6103b94eb3a5534d57b0987, type: 3}
+  - {fileID: 2539789529922440233, guid: 74a482c865dd25e4da038a2ff03cf227, type: 3}
 --- !u!1 &9093899185542867466
 GameObject:
   m_ObjectHideFlags: 0

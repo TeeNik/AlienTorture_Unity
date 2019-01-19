@@ -7,7 +7,7 @@ public class ResourceManager : MonoBehaviour
     public RuntimeAnimatorController[] CharacterAnimators;
     public GameObject[] AbilityPrefabs;
     public CharacterView CharacterBase;
-    public WeaponView WeaponBase;
+    public WeaponView[] WeaponPrefabs;
 
     public GameObject GetAbilityPrefab(string name)
     {
@@ -17,6 +17,11 @@ public class ResourceManager : MonoBehaviour
     public Sprite GetCharacterSprite(string name)
     {
         return Get(name, CharacterSprites);
+    }
+
+    public WeaponView GetWeaponPrefab(string name)
+    {
+        return Get(name, WeaponPrefabs);
     }
 
     public RuntimeAnimatorController GetCharacterAnimator(string name)

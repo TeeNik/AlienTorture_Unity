@@ -1,12 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-public class WeaponModel 
+public class WeaponModel : MonoBehaviour
 {
-    public GameObject Object;
     public WeaponData Data { get; private set; }
 
-    public WeaponModel(WeaponData data)
+    public void Init(WeaponData data)
     {
         Data = data;
     }

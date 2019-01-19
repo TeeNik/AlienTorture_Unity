@@ -1,6 +1,6 @@
 ﻿[
     {
-        "Type": "pistol",
+        "Type": "Pistol",
         "Sprite": "pistol",
         "Damage": "10",
         "BulletPrefab": "PistolShot",

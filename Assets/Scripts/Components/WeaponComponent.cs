@@ -6,11 +6,22 @@ public class WeaponComponent : BaseComponent
 {
     public WeaponModel Weapon;
     private float _lastShootTime;
+    private Transform _weaponContainer;
+
+
+    public void Init(CharacterModel owner, Transform weaponContainer)
+    {
+        base.Init(owner);
+        _weaponContainer = weaponContainer;
+        SetWeapon("Pistol");
+    }
 
     public void SetWeapon(string id)
     {
-
+        Weapon = GameLayer.Instance.WeaponConstructor.CreateWeapon(id);
+        Weapon.transform.SetParent(_weaponContainer);
     }
+
 
     public void RotateWeapon()
     {
@@ -30,7 +41,7 @@ public class WeaponComponent : BaseComponent
             Vector2 direction = target - myPos;
             direction.Normalize();
             var bullet = GameLayer.Instance.BulletPool.GetBullet();
-            bullet.Run(Weapon.Object.transform.position, direction, Weapon.Data.Damage);
+            bullet.Run(Weapon.transform.position, direction, Weapon.Data.Damage);
         }
     }
 }

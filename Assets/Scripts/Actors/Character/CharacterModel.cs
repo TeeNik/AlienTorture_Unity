@@ -12,7 +12,7 @@ public class CharacterModel : MonoBehaviour, IDisposable
         WeaponComp = gameObject.AddComponent<WeaponComponent>();
         HealthComp.Init(this);
         MovementComp.Init(this);
-        WeaponComp.Init(this);
+        WeaponComp.Init(this, _weaponContainer);
     }
 
     private CompositeDisposable _subscriptions;
@@ -21,8 +21,10 @@ public class CharacterModel : MonoBehaviour, IDisposable
     public MovementComponent MovementComp { get; private set; }
     public HealthComponent HealthComp { get; private set; }
     public WeaponComponent WeaponComp { get; private set; }
-
     public Ability Ability;
+
+    [SerializeField] private Transform _weaponContainer;
+
     public void Dispose()
     {
         Utils.DisposeAndSetNull(ref _subscriptions);

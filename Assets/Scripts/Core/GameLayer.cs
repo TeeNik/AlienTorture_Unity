@@ -28,7 +28,6 @@ public class GameLayer : MonoBehaviour
         CharacterConstructor = new CharacterConstructor();
         CharacterConstructor.Init();
         WeaponConstructor = new WeaponConstructor();
-        WeaponConstructor.Init();
 
         BalanceData.CharactersData = ParseConfig<CharacterData>("CharacterConfig");
         BalanceData.WeaponsData = ParseConfig<WeaponData>("WeaponConfig");

@@ -27,7 +27,7 @@ public class CharacterConstructor
         var character = Object.Instantiate(_characterBase, parent);
         CharacterData data = GameLayer.Instance.BalanceData.CharactersData.Find(ch => ch.Type == type);
 
-        CharacterModel model = character.gameObject.AddComponent<CharacterModel>();
+        CharacterModel model = character.gameObject.GetComponent<CharacterModel>();
         model.Init(data);
         character.Init(model);
 
