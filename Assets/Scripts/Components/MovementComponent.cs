@@ -6,7 +6,7 @@ public class MovementComponent : BaseComponent
 {
     private Rigidbody2D _rb;
     private Animator _animator;
-    private float _speed = 3f;
+    private float _speed = 6f;
     private bool _looksRight = true;
 
     public override void Init(CharacterModel owner)
