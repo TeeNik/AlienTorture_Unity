@@ -33,6 +33,8 @@ public class GameLayer : MonoBehaviour
         BalanceData.WeaponsData = ParseConfig<WeaponData>("WeaponConfig");
         
         Player = new UnityBehaviorEquals<CharacterModel>(null);
+
+        gameObject.AddComponent<PlayerController>();
         InitPlayer();
     }
 

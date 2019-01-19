@@ -25,11 +25,13 @@ public class CharacterConstructor : MonoBehaviour
     {
         var character = Instantiate(_characterBase, parent);
         CharacterData data = GameLayer.Instance.BalanceData.CharactersData.Find(ch => ch.Type == type);
-        CharacterModel model = new CharacterModel(data, character.gameObject);       
+
+        CharacterModel model = character.gameObject.AddComponent<CharacterModel>();
+        model.Init(data);
         character.Init(model);
 
         model.Ability = (Ability)Activator.CreateInstance(_abilities[data.Ability]);
-        model.Ability.Init(model.Object.transform);
+        model.Ability.Init(model.transform);
         return model;
     }
 

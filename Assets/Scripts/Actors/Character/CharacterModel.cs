@@ -1,28 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
-public class CharacterModel : IDisposable
+public class CharacterModel : MonoBehaviour, IDisposable
 {
-
-    public CharacterModel(CharacterData data, GameObject obj)
+    public void Init(CharacterData data)
     {
         Data = data;
-        Object = obj;
         _subscriptions = new CompositeDisposable();
-        MovementComp = obj.GetComponent<MovementComponent>();
-        MovementComp.Init();
-        HealthComp = obj.GetComponent<HealthComponent>();
-        HealthComp.Init(_subscriptions);
-        WeaponComp = obj.GetComponent<WeaponComponent>();
+        HealthComp = gameObject.AddComponent<HealthComponent>();
+        MovementComp = gameObject.AddComponent<MovementComponent>();
+        WeaponComp = gameObject.AddComponent<WeaponComponent>();
+        HealthComp.Init(this);
+        MovementComp.Init(this);
+        WeaponComp.Init(this);
     }
 
     private CompositeDisposable _subscriptions;
 
-    public CharacterData Data { get; }
-    public GameObject Object { get; } 
-    public MovementComponent MovementComp { get; }
-    public HealthComponent HealthComp { get; }
-    public WeaponComponent WeaponComp { get; }
+    public CharacterData Data { get; private set; }
+    public MovementComponent MovementComp { get; private set; }
+    public HealthComponent HealthComp { get; private set; }
+    public WeaponComponent WeaponComp { get; private set; }
+
     public Ability Ability;
     public void Dispose()
     {
