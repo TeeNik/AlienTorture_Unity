@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8053616036392655357}
   - component: {fileID: 8053616036392655355}
   - component: {fileID: 4305980056157809461}
+  - component: {fileID: 114712125805633502}
   m_Layer: 0
-  m_Name: pistolSpot
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,5 +91,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 015743025f601e34198ba1571323fbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114712125805633502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053616036392655356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d6ecd60c492f94a8fc4be985742784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
