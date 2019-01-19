@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-public class CharacterConstructor : MonoBehaviour
+public class CharacterConstructor
 {
     private CharacterView _characterBase;
     private Dictionary<string, Type> _abilities;
@@ -23,7 +24,7 @@ public class CharacterConstructor : MonoBehaviour
 
     public CharacterModel CreateCharacter(string type, Transform parent)
     {
-        var character = Instantiate(_characterBase, parent);
+        var character = Object.Instantiate(_characterBase, parent);
         CharacterData data = GameLayer.Instance.BalanceData.CharactersData.Find(ch => ch.Type == type);
 
         CharacterModel model = character.gameObject.AddComponent<CharacterModel>();

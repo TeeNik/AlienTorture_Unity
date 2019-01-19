@@ -13,12 +13,15 @@ public class CameraController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
 
         _subscriptions = new CompositeDisposable();
-        _subscriptions.Add(GameLayer.Instance.Player.Subscribe((OnPlayerChanged)));
+        _subscriptions.Add(GameLayer.Instance.Player.Subscribe(OnPlayerChanged));
     }
 
-    private void OnPlayerChanged(CharacterModel characterModel)
+    private void OnPlayerChanged(CharacterModel model)
     {
-        _player = characterModel.gameObject;
+        if (model != null)
+        {
+            _player = model.gameObject;
+        }
     }
 
     void Update()
