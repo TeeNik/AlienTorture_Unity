@@ -1,38 +1,47 @@
 ﻿[
-    {
-        "Type": "Pistol",
-        "Sprite": "pistol",
-        "Damage": "10",
-        "BulletPrefab": "PistolShot",
-        "Rate": "0.5"
-    },
-    {
-        "Type": "shotgun",
-        "Sprite": "gun",
-        "Damage": "10",
-        "BulletPrefab": "PistolShot",
-        "Rate": "1"
-    },
-    {
-        "Type": "assaultRiffle",
-        "Sprite": "assault",
-        "Damage": "10",
-        "BulletPrefab": "PistolShot",
-        "Rate": "0.1"
-    },
-    {
-        "Type": "sniperRiffle",
-        "Sprite": "sniper",
-        "Damage": "20",
-        "BulletPrefab": "PistolShot",
-        "Rate": "2"
-    },
-    {
-        "Type": "plasmaGun",
-        "Sprite": "plasma",
-        "Damage": "30",
-        "BulletPrefab": "PistolShot",
-        "Rate": "2"
-    }
-
+  {
+    "Type": "Pistol",
+    "Sprite": "pistol",
+    "Damage": "10",
+    "BulletPrefab": "PistolShot",
+    "Rate": "0.5",
+    "Magazine": "10",
+    "Ammo": "100"
+  },
+  {
+    "Type": "shotgun",
+    "Sprite": "gun",
+    "Damage": "10",
+    "BulletPrefab": "PistolShot",
+    "Rate": "1",
+    "Magazine": "10",
+    "Ammo": "100"
+  },
+  {
+    "Type": "assaultRiffle",
+    "Sprite": "assault",
+    "Damage": "10",
+    "BulletPrefab": "PistolShot",
+    "Rate": "0.1",
+    "Magazine": "10",
+    "Ammo": "100"
+  },
+  {
+    "Type": "sniperRiffle",
+    "Sprite": "sniper",
+    "Damage": "20",
+    "BulletPrefab": "PistolShot",
+    "Rate": "2",
+    "Magazine": "10",
+    "Ammo": "100"
+  },
+  {
+    "Type": "plasmaGun",
+    "Sprite": "plasma",
+    "Damage": "30",
+    "BulletPrefab": "PistolShot",
+    "Rate": "2",
+    "Magazine": "10",
+    "Ammo": "100"
+  }
 ]
