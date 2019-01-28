@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponComponent : BaseComponent
 {
@@ -21,7 +18,6 @@ public class WeaponComponent : BaseComponent
         Weapon = GameLayer.Instance.WeaponConstructor.CreateWeapon(id);
         Weapon.transform.SetParent(_weaponContainer);
     }
-
 
     public void RotateWeapon()
     {
@@ -45,11 +41,4 @@ public class WeaponComponent : BaseComponent
         }
     }
 
-    public void Update()
-    {
-        Input.GetKey(KeyCode.A)
-        {
-
-        }
-    }
 }

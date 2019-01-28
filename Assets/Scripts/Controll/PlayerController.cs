@@ -38,14 +38,8 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
-                Ability();
             }
         }
-    }
-
-    void Ability()
-    {
-        Game.Get().Player.CurrentValue.Ability.Use();
     }
 
     void OnDestroy()
