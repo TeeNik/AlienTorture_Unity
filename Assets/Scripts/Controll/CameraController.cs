@@ -7,17 +7,20 @@ public class CameraController : MonoBehaviour
     private GameObject _player;
     private CompositeDisposable _subscriptions;
 
-    void Start()
+    public void Init()
     {
         _rb = GetComponent<Rigidbody2D>();
         _center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         _subscriptions = new CompositeDisposable();
-        _subscriptions.Add(GameLayer.Instance.Player.Subscribe((OnPlayerChanged)));
+        _subscriptions.Add(Game.Get().Player.Subscribe(OnPlayerChanged));
     }
 
-    private void OnPlayerChanged(CharacterModel characterModel)
+    private void OnPlayerChanged(CharacterModel model)
     {
-        _player = characterModel.gameObject;
+        if (model != null)
+        {
+            _player = model.gameObject;
+        }
     }
 
     void Update()

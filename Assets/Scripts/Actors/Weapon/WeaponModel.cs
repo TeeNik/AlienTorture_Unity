@@ -1,12 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-public class WeaponModel 
+public class WeaponModel : MonoBehaviour
 {
-    public GameObject Object;
     public WeaponData Data { get; private set; }
 
-    public WeaponModel(WeaponData data)
+    private int _maxInMag; //ToConfig
+    private int _currentInMag;
+    private int _currentAmmo;
+    private int _maxAmmo; //ToConfig
+
+    public void Init(WeaponData data)
     {
         Data = data;
     }

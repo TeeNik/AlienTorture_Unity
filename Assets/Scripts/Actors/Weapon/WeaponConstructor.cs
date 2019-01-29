@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
-public class WeaponConstructor : MonoBehaviour
+public class WeaponConstructor
 {
-    [SerializeField] private WeaponView _weaponBase;
-
-
-    public void Init()
-    {
-       
-    }
+    private WeaponView _weaponBase;
 
     public WeaponModel CreateWeapon(string type)
     {
-        var weapon = Instantiate(_weaponBase);
+        var prefab = GameLayer.Instance.ResourceManager.GetWeaponPrefab(type);
         WeaponData data = GameLayer.Instance.BalanceData.WeaponsData.Find(ch => ch.Type == type);
-        WeaponModel model = new WeaponModel(data);
+        var weapon = Object.Instantiate(prefab);
+        var model = weapon.gameObject.AddComponent<WeaponModel>();
         weapon.Init(model);
+        model.Init(data);
         return model;
     }
 

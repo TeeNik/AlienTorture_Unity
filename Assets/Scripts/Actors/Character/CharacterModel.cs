@@ -7,24 +7,61 @@ public class CharacterModel : MonoBehaviour, IDisposable
     {
         Data = data;
         _subscriptions = new CompositeDisposable();
-        HealthComp = gameObject.AddComponent<HealthComponent>();
         MovementComp = gameObject.AddComponent<MovementComponent>();
         WeaponComp = gameObject.AddComponent<WeaponComponent>();
-        HealthComp.Init(this);
         MovementComp.Init(this);
-        WeaponComp.Init(this);
+        WeaponComp.Init(this, _weaponContainer);
     }
 
     private CompositeDisposable _subscriptions;
 
     public CharacterData Data { get; private set; }
     public MovementComponent MovementComp { get; private set; }
-    public HealthComponent HealthComp { get; private set; }
     public WeaponComponent WeaponComp { get; private set; }
 
-    public Ability Ability;
+    [SerializeField] private Transform _weaponContainer;
+
     public void Dispose()
     {
         Utils.DisposeAndSetNull(ref _subscriptions);
+    }
+
+    private Interactive _target;
+    //TODO make hands class
+    private CanTake _inHands;
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        var obj = col.GetComponent<Interactive>();
+        if (obj != null && _target != obj)
+        {
+            if (_target != null)
+            {
+                _target.Deselect();
+                _target = null;
+            }
+            _target = obj;
+            _target.Select();
+        }
+        print(col.gameObject.name);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        var obj = col.GetComponent<Interactive>();
+        if (obj == _target && _target != null)
+        {
+            _target.Deselect();
+            _target = null;
+        }
+        print(col.gameObject.name);
+    }
+
+    void UseTarget()
+    {
+        if (_target != null)
+        {
+            _target.Execute(_inHands);
+        }
     }
 }
