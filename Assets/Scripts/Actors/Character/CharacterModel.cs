@@ -26,8 +26,42 @@ public class CharacterModel : MonoBehaviour, IDisposable
         Utils.DisposeAndSetNull(ref _subscriptions);
     }
 
+    private Interactive _target;
+    //TODO make hands class
+    private CanTake _inHands;
+
     void OnTriggerEnter2D(Collider2D col)
     {
+        var obj = col.GetComponent<Interactive>();
+        if (obj != null && _target != obj)
+        {
+            if (_target != null)
+            {
+                _target.Deselect();
+                _target = null;
+            }
+            _target = obj;
+            _target.Select();
+        }
         print(col.gameObject.name);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        var obj = col.GetComponent<Interactive>();
+        if (obj == _target && _target != null)
+        {
+            _target.Deselect();
+            _target = null;
+        }
+        print(col.gameObject.name);
+    }
+
+    void UseTarget()
+    {
+        if (_target != null)
+        {
+            _target.Execute(_inHands);
+        }
     }
 }
