@@ -8,8 +8,13 @@ public class MovementComponent : BaseComponent
     private Animator _animator;
     private float _speed = 6f;
     private bool _looksRight = true;
-    int _previousDirection;
-    enum Directions {Right,Left,Up,Down };
+    private Direction _previousDirection;
+
+    enum Direction
+    {
+        Right,Left,Up,Down
+    }
+
     public override void Init(CharacterModel owner)
     {
         base.Init(owner);
@@ -21,39 +26,42 @@ public class MovementComponent : BaseComponent
     {
         _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed;
         //  _animator.SetFloat("Speed", _rb.velocity.magnitude)
-        CheckDirection();
+        CheckDirections();
     }
 
-    void CheckDirection()
+    void CheckDirections()
     {
-        Vector2 velocity = _rb.velocity;
-        if (Mathf.Abs(velocity.x) >= Mathf.Abs(velocity.y))
+        float x = _rb.velocity.x;
+        float y = _rb.velocity.y;
+
+        if (Mathf.Abs(x) >= Mathf.Abs(y))
         {
-            if (velocity.x > 0 && _previousDirection!=(int)Directions.Right)
-            {
-                _animator.SetTrigger("Right");
-                _previousDirection = (int)Directions.Right;
-            }
-            if (velocity.x < 0 && _previousDirection != (int)Directions.Left)
-            {
-                _animator.SetTrigger("Left");
-                _previousDirection = (int)Directions.Left;
-            }
+            CheckDirection(x, Direction.Left, Direction.Right);
         }
         else
         {
-            if (velocity.y > 0 && _previousDirection != (int)Directions.Up)
-            {
-                _animator.SetTrigger("Up");
-                _previousDirection = (int)Directions.Up;
-            }
-            if (velocity.y < 0 && _previousDirection != (int)Directions.Down)
-            {
-                _animator.SetTrigger("Down");
-                _previousDirection = (int)Directions.Down;
-            }
+            CheckDirection(y, Direction.Down, Direction.Up);
         }
     }
+
+    private void CheckDirection(float coor, Direction less, Direction more)
+    {
+        if (coor > 0 && _previousDirection != more)
+        {
+            SetDirection(Direction.Up);
+        }
+        if (coor < 0 && _previousDirection != less)
+        {
+            SetDirection(Direction.Down);
+        }
+    }
+
+    private void SetDirection(Direction dir)
+    {
+            _animator.SetTrigger(dir.ToString());
+            _previousDirection = dir;
+    }
+
     public void Flip()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
