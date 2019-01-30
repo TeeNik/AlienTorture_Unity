@@ -48,11 +48,11 @@ public class MovementComponent : BaseComponent
     {
         if (coor > 0 && _previousDirection != more)
         {
-            SetDirection(Direction.Up);
+            SetDirection(more);
         }
         if (coor < 0 && _previousDirection != less)
         {
-            SetDirection(Direction.Down);
+            SetDirection(less);
         }
     }
 
