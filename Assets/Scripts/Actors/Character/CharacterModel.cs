@@ -57,6 +57,21 @@ public class CharacterModel : MonoBehaviour, IDisposable
         print(col.gameObject.name);
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _target != null)
+        {
+            if (!_target.IsContinuous)
+            {
+                UseTarget();
+            }
+            else
+            {
+
+            }
+        }
+    }
+
     void UseTarget()
     {
         if (_target != null)
