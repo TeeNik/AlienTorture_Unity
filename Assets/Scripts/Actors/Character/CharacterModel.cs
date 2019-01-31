@@ -43,7 +43,7 @@ public class CharacterModel : MonoBehaviour, IDisposable
             _target = obj;
             _target.Select();
         }
-        print(col.gameObject.name);
+        //print(col.gameObject.name);
     }
 
     void OnTriggerExit2D(Collider2D col)

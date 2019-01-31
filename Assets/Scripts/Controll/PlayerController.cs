@@ -34,8 +34,7 @@ public class PlayerController : MonoBehaviour
             float vertical = Input.GetAxis("Vertical");
             float horizontal = Input.GetAxis("Horizontal");
             _movement.Move(vertical, horizontal);
-          //  _movement.Flip();
-
+         
             if (Input.GetButtonDown("Jump"))
             {
             }
