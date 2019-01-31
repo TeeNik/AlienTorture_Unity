@@ -18,7 +18,7 @@ public class TestInteractive : Interactive
         _sr.color = Color.white;
     }
 
-    public override void Execute(Interactive obj)
+    public override void Process(Interactive obj)
     {
     }
 }

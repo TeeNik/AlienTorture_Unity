@@ -11,7 +11,7 @@ public class Hands : Interactive
 
     private readonly Vector2 _size = new Vector2(.2f, .2f);
 
-    public override void Execute(Interactive obj)
+    public override void Process(Interactive obj)
     {
         obj.transform.localScale = _size;
         obj.transform.SetParent(Container);

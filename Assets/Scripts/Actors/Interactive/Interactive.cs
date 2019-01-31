@@ -16,6 +16,8 @@ public abstract class Interactive : MonoBehaviour
         SpriteRenderer.color = Color.white;
     }
 
-    public abstract void Execute(Interactive obj);
+    public virtual void Enter(Interactive obj) { }
+    public abstract void Process(Interactive obj);
+    public virtual void Leave(Interactive obj) { }
 
 }

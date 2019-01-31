@@ -26,10 +26,10 @@ public class Material : CanTake
         Assert.Inv(_state <= _data.Count, "Illigal material state");
     }
 
-    public override void Execute(Interactive hands)
+    public override void Process(Interactive hands)
     {
         print("Hands");
         //base.Execute(hands);
-        hands.Execute(this);
+        hands.Process(this);
     }
 }

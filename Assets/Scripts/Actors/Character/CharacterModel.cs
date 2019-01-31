@@ -57,26 +57,48 @@ public class CharacterModel : MonoBehaviour, IDisposable
         }
     }
 
+    private float _time;
+    private bool _isHold;
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _target != null)
+        if (_target != null)
         {
-            if (!_target.IsContinuous)
+            var isCont = _target.IsContinuous;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isCont)
+                {
+                    _isHold = true;
+                }
+            }
+
+            if (isCont && _isHold && Time.time - .5f > _time)
+            {
+                _time = Time.time;
+                UseTarget();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _target.Leave(Hands);
+                _isHold = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && !isCont)
             {
                 UseTarget();
             }
-            else
-            {
-
-            }
         }
+
+
+
     }
 
     void UseTarget()
     {
         if (_target != null)
         {
-            _target.Execute(Hands);
+            _target.Process(Hands);
         }
     }
 }

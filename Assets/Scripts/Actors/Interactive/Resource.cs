@@ -5,12 +5,40 @@ public class Resource : Interactive
     public Material Material;
     public Transform SpawnPoint;
 
-    public override void Execute(Interactive obj)
+    private float _progress;
+    private bool _isNeedReload;
+
+    public override bool IsContinuous
     {
-        var hands = obj as Hands;
-        if (hands.IsEmpty)
+        get => true;
+        set {}
+    }
+
+    public override void Process(Interactive obj)
+    {
+        if (_progress < 1)
         {
-            Instantiate(Material, SpawnPoint);
+            _progress += .1f;
+            print(_progress);
         }
+        else
+        {
+            if (!_isNeedReload)
+            {
+                _progress = 0;
+                var hands = obj as Hands;
+                if (hands.IsEmpty)
+                {
+                    Instantiate(Material, SpawnPoint);
+                }
+                _isNeedReload = true;
+            }
+        }
+    }
+
+    public override void Leave(Interactive obj)
+    {
+        base.Leave(obj);
+        _isNeedReload = false;
     }
 }
