@@ -8,7 +8,7 @@ public class MovementComponent : BaseComponent
     private Animator _animator;
     private float _speed = 6f;
     private bool _looksRight = true;
-    private Direction _previousDirection;
+    private Direction _previousDirection=Direction.Right;
 
     enum Direction
     {
@@ -24,9 +24,20 @@ public class MovementComponent : BaseComponent
 
     public void Move(float vertical, float horizontal)
     {
+        bool walked = _rb.velocity.magnitude>0.2;
+        Debug.Log(walked.ToString() + " " + Time.time.ToString());
         _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed;
-        //  _animator.SetFloat("Speed", _rb.velocity.magnitude)
         CheckDirections();
+        CheckIfMoving(walked);        
+    }
+
+    void CheckIfMoving(bool walked)
+    {
+        if (_rb.velocity.magnitude > 0 && !walked || _rb.velocity.magnitude == 0 && walked)
+        {
+            _animator.SetTrigger(_previousDirection.ToString());
+            _animator.SetFloat("Speed", _rb.velocity.magnitude);
+        }
     }
 
     void CheckDirections()
@@ -62,13 +73,5 @@ public class MovementComponent : BaseComponent
             _previousDirection = dir;
     }
 
-    public void Flip()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        if (mousePosition.x > 0 && !_looksRight || mousePosition.x < 0 && _looksRight)
-        {
-            transform.Rotate(0, 180, 0);
-            _looksRight = !_looksRight;
-        }
-    }
+
 }
