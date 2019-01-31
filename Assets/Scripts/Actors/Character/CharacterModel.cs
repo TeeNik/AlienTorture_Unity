@@ -18,6 +18,8 @@ public class CharacterModel : MonoBehaviour, IDisposable
     public CharacterData Data { get; private set; }
     public MovementComponent MovementComp { get; private set; }
     public WeaponComponent WeaponComp { get; private set; }
+    public Hands Hands;
+
 
     [SerializeField] private Transform _weaponContainer;
 
@@ -28,7 +30,6 @@ public class CharacterModel : MonoBehaviour, IDisposable
 
     private Interactive _target;
     //TODO make hands class
-    private CanTake _inHands;
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -43,7 +44,6 @@ public class CharacterModel : MonoBehaviour, IDisposable
             _target = obj;
             _target.Select();
         }
-        print(col.gameObject.name);
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -54,7 +54,6 @@ public class CharacterModel : MonoBehaviour, IDisposable
             _target.Deselect();
             _target = null;
         }
-        print(col.gameObject.name);
     }
 
     public void Update()
@@ -76,7 +75,7 @@ public class CharacterModel : MonoBehaviour, IDisposable
     {
         if (_target != null)
         {
-            _target.Execute(_inHands);
+            _target.Execute(Hands);
         }
     }
 }
