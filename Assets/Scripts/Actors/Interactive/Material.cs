@@ -15,6 +15,9 @@ public class Material : CanTake
     private List<MaterialData> _data;
     private int _state;
 
+    public MaterialData Data => _data[_state];
+    public override string Type => Data.Type;
+
     public void Init(List<MaterialData> data)
     {
         _data = data;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestObject : Interactive
 {
+    public string TargetMaterial;
     private float _progress;
     private bool _isNeedReload;
 
@@ -15,21 +16,24 @@ public class QuestObject : Interactive
 
     public override void Process(Interactive obj)
     {
-        if (_progress < 1)
+        var hands = obj as Hands;
+        if (hands != null && !hands.IsEmpty && hands.InHands.Type == TargetMaterial)
         {
-            _progress += .1f;
-            print(_progress);
-        }
-        else
-        {
-            if (!_isNeedReload)
+            if (_progress < 1)
             {
-                _progress = 0;
-                var hands = obj as Hands;
-                if (hands.IsEmpty)
+                _progress += .1f;
+                print(_progress);
+            }
+            else
+            {
+                if (!_isNeedReload)
                 {
+                    _progress = 0;
+                    if (hands.IsEmpty)
+                    {
+                    }
+                    _isNeedReload = true;
                 }
-                _isNeedReload = true;
             }
         }
     }

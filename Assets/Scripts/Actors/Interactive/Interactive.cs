@@ -2,6 +2,7 @@
 
 public abstract class Interactive : MonoBehaviour
 {
+    public virtual string Type { get; }
     public SpriteRenderer SpriteRenderer;
 
     public virtual bool IsContinuous { get; set; }
