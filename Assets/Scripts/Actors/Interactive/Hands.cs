@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Hands : Interactive
 {
-
     public Transform Container;
     public bool IsEmpty => InHands == null;
     public Interactive InHands { get; private set; }

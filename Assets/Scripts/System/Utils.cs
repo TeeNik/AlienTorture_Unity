@@ -11,4 +11,10 @@ public class Utils
             some = null;
         }
     }
+
+    public static InteractiveType GetInteractiveType(string type)
+    {
+        Assert.Inv(Enum.TryParse("Active", out InteractiveType intType), $"There is no such type: {type}");
+        return intType;
+    }
 }
