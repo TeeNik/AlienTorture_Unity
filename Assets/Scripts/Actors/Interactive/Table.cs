@@ -8,16 +8,19 @@ public class Table : Interactive
 
     public override void Process(Interactive obj)
     {
-        Hands hands = obj as Hands;
-        if (_obj == null && !hands.IsEmpty)
+        if(obj.Type == InteractiveType.Hands)
         {
-            Put(hands.TakeFromHands());
-            
-        }
-        else if(_obj != null && hands.IsEmpty)
-        {
-            hands.Process(_obj);
-            Free();
+            Hands hands = obj as Hands;
+            if (hands.IsEmpty)
+            {
+                hands.Process(_obj);
+                Free();
+            }
+            else
+            {
+                Put(hands.TakeFromHands());
+
+            }
         }
     }
 

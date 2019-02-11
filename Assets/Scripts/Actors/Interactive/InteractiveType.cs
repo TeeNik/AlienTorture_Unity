@@ -1,4 +1,4 @@
-﻿public enum InteractiveType
+﻿public static class InteractiveType
 {
-    Hands
+    public const string Hands = "Hands";
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Fabric : Interactive
+﻿public class Fabric : Interactive
 {
     private float _progress;
 

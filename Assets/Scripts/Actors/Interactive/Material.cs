@@ -14,7 +14,6 @@ public class Material : CanTake
 {
     private List<MaterialData> _data;
     private int _state;
-    private InteractiveType _type;
 
     public MaterialData Data => _data[_state];
     public override string Type => Data.Type;
