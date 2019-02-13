@@ -1,18 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Fabric : MonoBehaviour
+﻿public class Fabric : Interactive
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float _progress;
 
-    // Update is called once per frame
-    void Update()
+    public override void Process(Interactive obj)
     {
-        
+        Hands hands = obj as Hands;
     }
 }

@@ -15,6 +15,9 @@ public class Material : CanTake
     private List<MaterialData> _data;
     private int _state;
 
+    public MaterialData Data => _data[_state];
+    public override string Type => Data.Type;
+
     public void Init(List<MaterialData> data)
     {
         _data = data;
@@ -26,10 +29,10 @@ public class Material : CanTake
         Assert.Inv(_state <= _data.Count, "Illigal material state");
     }
 
-    public override void Execute(Interactive hands)
+    public override void Process(Interactive hands)
     {
         print("Hands");
         //base.Execute(hands);
-        hands.Execute(this);
+        hands.Process(this);
     }
 }
