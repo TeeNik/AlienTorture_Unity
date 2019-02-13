@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Table : Interactive
+public class Table : CanPut
 {
     public Transform Container;
 
@@ -24,7 +24,7 @@ public class Table : Interactive
         }
     }
 
-    private void Put(Interactive obj)
+    public override void Put(Interactive obj)
     {
         var canTake = (CanTake) obj;
         canTake.SetColliderEnable(false);
