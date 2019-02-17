@@ -1,18 +1,19 @@
-﻿public class CanTake : Interactive
+﻿using UnityEngine;
+
+public abstract class CanTake : Interactive
 {
-    public override void Select()
-    {
-    }
+    [SerializeField] private Collider2D _collider;
 
-    public override void Deselect()
-    {
-    }
-
-    public override void Execute(Interactive hands)
+    public override void Process(Interactive hands)
     {
         if (hands == null)
         {
             hands = this;
         }
+    }
+
+    public void SetColliderEnable(bool enable)
+    {
+        _collider.enabled = enable;
     }
 }

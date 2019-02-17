@@ -18,6 +18,8 @@ public class CharacterModel : MonoBehaviour, IDisposable
     public CharacterData Data { get; private set; }
     public MovementComponent MovementComp { get; private set; }
     public WeaponComponent WeaponComp { get; private set; }
+    public Hands Hands;
+
 
     [SerializeField] private Transform _weaponContainer;
 
@@ -28,7 +30,6 @@ public class CharacterModel : MonoBehaviour, IDisposable
 
     private Interactive _target;
     //TODO make hands class
-    private CanTake _inHands;
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -54,29 +55,50 @@ public class CharacterModel : MonoBehaviour, IDisposable
             _target.Deselect();
             _target = null;
         }
-        print(col.gameObject.name);
     }
 
+    private float _time;
+    private bool _isHold;
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _target != null)
+        if (_target != null)
         {
-            if (!_target.IsContinuous)
+            var isCont = _target.IsContinuous;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isCont)
+                {
+                    _isHold = true;
+                }
+            }
+
+            if (isCont && _isHold && Time.time - .5f > _time)
+            {
+                _time = Time.time;
+                UseTarget();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _target.Leave(Hands);
+                _isHold = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && !isCont)
             {
                 UseTarget();
             }
-            else
-            {
-
-            }
         }
+
+
+
     }
 
     void UseTarget()
     {
         if (_target != null)
         {
-            _target.Execute(_inHands);
+            _target.Process(Hands);
         }
     }
 }
