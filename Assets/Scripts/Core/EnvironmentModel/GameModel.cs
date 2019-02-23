@@ -11,7 +11,7 @@ public class GameModel : EnvironmentModel
     public void OnEnter()
     {
         Player = new UnityBehaviorEquals<CharacterModel>(null);
-        GameLayer.Instance.SceneController.LoadScene("Level", true, s =>
+        GameLayer.Instance.SceneController.LoadScene("Level 1", true, s =>
         {
             GameLayer.Instance.gameObject.AddComponent<PlayerController>();
             InitPlayer();
