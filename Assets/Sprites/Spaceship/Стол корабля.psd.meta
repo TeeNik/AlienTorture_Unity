@@ -1,11 +1,7 @@
 fileFormatVersion: 2
-guid: 4679c0829d3801847917f1b170e08de9
+guid: 09179bcb95cfa95418adb7ed59f0eece
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Testchar_0
-    21300002: Testchar_1
-    21300004: Testchar_2
-    21300006: Testchar_3
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -44,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 350
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -86,91 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Testchar_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 2
-        width: 358
-        height: 358
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87064a6b3323ae248a91383fc78c4edc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Testchar_1
-      rect:
-        serializedVersion: 2
-        x: 379
-        y: 2
-        width: 358
-        height: 358
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c446920bbfa9ab44ab7e02b3cf796059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Testchar_2
-      rect:
-        serializedVersion: 2
-        x: 758
-        y: 1
-        width: 359
-        height: 358
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2baf6b9692b83b744b22b24ebd3c5a01
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Testchar_3
-      rect:
-        serializedVersion: 2
-        x: 1147
-        y: 2
-        width: 358
-        height: 358
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4346d6e2fbce4c84ab7c7bda3adf9876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d82badaad3cbc5c4aa6d78bb17f01ba6
+    spriteID: 3638852bf04cf044283dc5d71d9af086
     vertices: []
     indices: 
     edges: []
