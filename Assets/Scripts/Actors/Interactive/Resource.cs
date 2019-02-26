@@ -8,6 +8,8 @@ public class Resource : Interactive
     private float _progress;
     private bool _isNeedReload;
 
+    public ProgressBar ProgressBar;
+
     public override bool IsContinuous
     {
         get => true;
@@ -18,7 +20,9 @@ public class Resource : Interactive
     {
         if (_progress < 1)
         {
+            ProgressBar.SetVisible(true);
             _progress += .1f;
+            ProgressBar.SetValue(_progress);
             print(_progress);
         }
         else
@@ -31,6 +35,7 @@ public class Resource : Interactive
                 {
                     Instantiate(Material, SpawnPoint);
                 }
+                ProgressBar.SetVisible(false);
                 _isNeedReload = true;
             }
         }
