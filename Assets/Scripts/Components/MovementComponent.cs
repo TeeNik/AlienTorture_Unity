@@ -25,6 +25,7 @@ public class MovementComponent : BaseComponent
     public void Move(float vertical, float horizontal)
     {
         bool walked = _rb.velocity.magnitude>0.2;
+        Debug.Log(walked.ToString() + " " + Time.time.ToString());
         _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed;
         CheckDirections();
         CheckIfMoving(walked);        

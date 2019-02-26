@@ -31,16 +31,16 @@ public class CameraController : MonoBehaviour
             var mousePosition = (Input.mousePosition - _center)*0.007f+new Vector3(0,0,-10);
             Debug.Log(transform.position);
             transform.position = _player.transform.position + mousePosition;
-            //Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
-            //if ( Mathf.Abs(mousePosition.x-center.x)>0.35* Screen.width || Mathf.Abs(mousePosition.y - center.y) > 0.35 * Screen.height)
-            //{
-            //    Vector3 mouseDir = mousePosition - new Vector3(Screen.width, Screen.height) / 2;
-            //    _target = _player.transform.position + mouseDir.normalized * 4;
-            //}
-            //else
-            //    _target = _player.transform.position;
-            //if ((transform.position - _target).magnitude > 0.5)
-            //    _rb.velocity = (_target - transform.position).normalized * 40;
+            Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
+            if (Mathf.Abs(mousePosition.x - center.x) > 0.35 * Screen.width || Mathf.Abs(mousePosition.y - center.y) > 0.35 * Screen.height)
+            {
+                Vector3 mouseDir = mousePosition - new Vector3(Screen.width, Screen.height) / 2;
+                _target = _player.transform.position + mouseDir.normalized * 4;
+            }
+            else
+                _target = _player.transform.position;
+            if ((transform.position - _target).magnitude > 0.5)
+                _rb.velocity = (_target - transform.position).normalized * 40;
         }
     }
 
