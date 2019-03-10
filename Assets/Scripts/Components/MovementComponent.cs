@@ -27,12 +27,13 @@ public class MovementComponent : BaseComponent
     public void Move(float vertical, float horizontal)
     {
         _currentPosition = transform.position;
-        bool walked = (_currentPosition - _previousPosition).magnitude>0.0000001;        
-        _rb.velocity = new Vector2(horizontal, vertical).normalized * _speed;
-        if(walked)
-        CheckDirections();
+        bool walked = (_currentPosition - _previousPosition).magnitude>0.0000001;
+        Vector2 input = new Vector2(horizontal, vertical).normalized * _speed;
+        _rb.velocity = input;
+        if(_rb.velocity.magnitude > 0)
+        CheckDirections(); 
         // CheckIfMoving(walked);
-        _animator.SetBool("Walks",_rb.velocity.magnitude>0);
+        _animator.SetBool("Walks",input.magnitude>0);
         Debug.Log(walked.ToString() + " " + (_currentPosition - _previousPosition).magnitude*100 + " " + Time.time);
         _previousPosition = _currentPosition;
     }
