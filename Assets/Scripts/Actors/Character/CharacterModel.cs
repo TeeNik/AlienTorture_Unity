@@ -8,20 +8,14 @@ public class CharacterModel : MonoBehaviour, IDisposable
         Data = data;
         _subscriptions = new CompositeDisposable();
         MovementComp = gameObject.AddComponent<MovementComponent>();
-        WeaponComp = gameObject.AddComponent<WeaponComponent>();
         MovementComp.Init(this);
-        WeaponComp.Init(this, _weaponContainer);
     }
 
     private CompositeDisposable _subscriptions;
 
     public CharacterData Data { get; private set; }
     public MovementComponent MovementComp { get; private set; }
-    public WeaponComponent WeaponComp { get; private set; }
     public Hands Hands;
-
-
-    [SerializeField] private Transform _weaponContainer;
 
     public void Dispose()
     {

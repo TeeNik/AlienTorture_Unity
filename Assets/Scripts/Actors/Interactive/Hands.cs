@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hands : Interactive
 {
     public Transform Container;
+    public override string Type => InteractiveType.Hands;
     public bool IsEmpty => InHands == null;
     public Interactive InHands { get; private set; }
 

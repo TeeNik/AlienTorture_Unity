@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour
 {
     private CompositeDisposable _subscriptions;
     private MovementComponent _movement;
-    private WeaponComponent _weapon;
     private bool _inited;
     private float _lastShootTime, _shootRate=0.5f;
 
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private void OnPlayerCreated(CharacterModel model)
     {
         _movement = model.MovementComp;
-        _weapon = model.WeaponComp;
         _inited = true;
     }
 
@@ -26,11 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_inited)
         {
-            if (Input.GetButton("Fire1"))
-            {
-                _weapon.Shoot();
-            }
-
+            
             float vertical = Input.GetAxis("Vertical");
             float horizontal = Input.GetAxis("Horizontal");
             _movement.Move(vertical, horizontal);
