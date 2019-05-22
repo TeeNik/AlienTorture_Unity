@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 850e88bcea9173e48b18e0200738ed73
+guid: 1a7bfc865e46445449b5826020cb51b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
-    second: Shaceship_0
+      213: 497600754102043572
+    second: Table_0
   - first:
-      213: 21300002
-    second: Shaceship_2
+      213: 8832363126130176641
+    second: Table_1
   - first:
-      213: 21300004
-    second: Shaceship_3
-  - first:
-      213: 21300006
-    second: Shaceship_4
-  - first:
-      213: 21300008
-    second: Shaceship_5
-  - first:
-      213: 21300010
-    second: Shaceship_6
+      213: -2036681344805705447
+    second: Table_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -78,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -87,10 +78,10 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -99,132 +90,69 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shaceship_0
+      name: Table_0
       rect:
         serializedVersion: 2
-        x: 92
-        y: 33
-        width: 1985
-        height: 1898
+        x: 0
+        y: 100
+        width: 200
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b04dad86d63b187468d66a094e74df79
-      internalID: 21300000
+      spriteID: f422b49be9623dd45bc31979a234b2ed
+      internalID: 497600754102043572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shaceship_2
+      name: Table_1
       rect:
         serializedVersion: 2
-        x: 2204
-        y: 1048
-        width: 1083
-        height: 878
+        x: 200
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e9d5d9321019c446bc026d3000ecb69
-      internalID: 21300002
+      spriteID: 8d078d3d21cb16c4fa07624071b7493c
+      internalID: 8832363126130176641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shaceship_3
+      name: Table_2
       rect:
         serializedVersion: 2
-        x: 2210
-        y: 732
-        width: 579
-        height: 90
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1812032a8815c74cb1efa7bf1cc4624
-      internalID: 21300004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shaceship_4
-      rect:
-        serializedVersion: 2
-        x: 3225
-        y: 116
-        width: 355
-        height: 884
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 798c8dd8d1fb7fc4d99961c8ca8de129
-      internalID: 21300006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shaceship_5
-      rect:
-        serializedVersion: 2
-        x: 2210
-        y: 511
-        width: 496
-        height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a32aa526d6223374fa206d2f36f13e33
-      internalID: 21300008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shaceship_6
-      rect:
-        serializedVersion: 2
-        x: 2180
-        y: 49
-        width: 911
-        height: 392
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52e5d776d74552740bda7e8804b2de57
-      internalID: 21300010
+      spriteID: 73fc21100a9cb194f9157963eeec95ac
+      internalID: -2036681344805705447
       vertices: []
       indices: 
       edges: []
@@ -232,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2232920526456b24c883ffb865c0f5d9
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
